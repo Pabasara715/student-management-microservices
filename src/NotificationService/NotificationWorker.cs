@@ -1,5 +1,4 @@
-﻿using StudentSystem.NotificationService.DataAccess;
-using StudentSystem.NotificationService.Events;
+﻿using StudentSystem.NotificationService.Events;
 using StudentSystem.NotificationService.Model;
 using StudentSystem.NotificationService.NotificationChannels;
 using StudentSystem.NotificationService.Repositories;
@@ -7,6 +6,7 @@ using StudentSystem.Infrastructure.Messaging;
 using Newtonsoft.Json.Linq;
 using Serilog;
 using Microsoft.Extensions.Hosting;
+using System.Text; 
 
 namespace StudentSystem.NotificationService;
 
@@ -49,7 +49,7 @@ public class NotificationWorker : IHostedService, IMessageHandlerCallback
                     await HandleAsync(messageObject.ToObject<EnrollmentPlanned>());
                     break;
                 case "CourseCompleted": // Use the event name from EnrollmentManagementAPI
-                    await HandleAsync(messageObject.ToObject<EnrollmentFinished>());
+                    await HandleAsync(messageObject.ToObject<CourseCompleted>()); // FIX APPLIED HERE
                     break;
                 case "DayHasPassed":
                     await HandleAsync(messageObject.ToObject<DayHasPassed>());
@@ -88,7 +88,7 @@ public class NotificationWorker : IHostedService, IMessageHandlerCallback
             StudentId = ep.StudentId,
             CourseCode = ep.CourseCode,
             StartTime = ep.EnrollmentDate,
-            Description = $"Enrollment for {ep.CourseCode}" 
+            Description = $"Enrollment for {ep.CourseCode}"
         };
 
         Log.Information("Register Enrollment: {Id}, {StudentId}, {CourseCode}, {StartTime}",
@@ -97,10 +97,10 @@ public class NotificationWorker : IHostedService, IMessageHandlerCallback
         await _repo.RegisterEnrollmentAsync(enrollment);
     }
 
-    private async Task HandleAsync(EnrollmentFinished ef)
+    private async Task HandleAsync(CourseCompleted ef) 
     {
-        Log.Information("Remove completed Enrollment: {Id}", ef.JobId);
-        await _repo.RemoveEnrollmentsAsync(new[] { ef.JobId.ToString() });
+        Log.Information("Remove completed Enrollment: {Id}", ef.EnrollmentId);
+        await _repo.RemoveEnrollmentsAsync(new[] { ef.EnrollmentId.ToString() });
     }
 
     private async Task HandleAsync(DayHasPassed dhp)
@@ -118,7 +118,7 @@ public class NotificationWorker : IHostedService, IMessageHandlerCallback
             StringBuilder body = new StringBuilder();
             body.AppendLine($"Dear {student.FullName},\n");
             body.AppendLine($"This is a reminder that you have classes scheduled for tomorrow:\n");
-            
+
             foreach (Enrollment enrollment in enrollmentsPerStudent)
             {
                 body.AppendLine($"- {enrollment.StartTime:dd-MM-yyyy HH:mm} : {enrollment.CourseCode}");

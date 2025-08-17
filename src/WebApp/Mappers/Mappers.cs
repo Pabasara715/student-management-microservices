@@ -1,3 +1,7 @@
+using StudentSystem.StudentManagementAPI.Commands;
+using StudentSystem.CourseManagement.Commands;
+using StudentSystem.WebApp.ViewModels;
+
 namespace StudentSystem.WebApp.Mappers;
 
 public static class Mappers
@@ -6,19 +10,17 @@ public static class Mappers
     (
         Guid.NewGuid(),
         Guid.NewGuid().ToString("N"),
-        source.Student.Name,
-        source.Student.Address,
-        source.Student.PostalCode,
-        source.Student.City,
-        source.Student.TelephoneNumber,
-        source.Student.EmailAddress
+        source.FullName,
+        source.DateOfBirth.Value,
+        source.EmailAddress
     );
 
-    public static RegisterCourse MapToRegisterCourse(this CourseManagementNewViewModel source) => new RegisterCourse(
+    public static CreateCourse MapToRegisterCourse(this CourseManagementNewViewModel source) => new CreateCourse(
         Guid.NewGuid(),
         source.Course.CourseCode,
-        source.Course.Brand,
-        source.Course.Type,
-        source.SelectedStudentId
+        source.Course.CourseName,
+        string.Empty,
+        source.Course.Department,
+        source.Course.CreditHours.Value
     );
 }

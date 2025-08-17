@@ -6,7 +6,8 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <Title>StudentSystem.Infrastructure.Messaging</Title>
-    <Description>Infrastructure package for the Student Management System sample application that contains helpers for interacting with RabbitMQ.</Description>
+    <Description>Infrastructure package for the Student Management System sample application that
+      contains helpers for interacting with RabbitMQ.</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
@@ -14,13 +15,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
     <PackageReference Include="Newtonsoft.Json" />
-    <PackageReference Include="RabbitMQ.Client" /> <!-- Removed duplicate and version -->
+    <PackageReference Include="RabbitMQ.Client" />
     <PackageReference Include="System.Threading.Tasks" /> <!-- Removed version -->
     <PackageReference Include="Polly" />
     <PackageReference Include="Serilog" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="\"/>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>

@@ -7,22 +7,24 @@
 <table class="table">
     <thead>
         <tr>
-            <th>License No.</th>
-            <th>Brand</th>
-            <th>Type</th>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Department</th>
+            <th>Credits</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var course in Model.Courses)
         {
-            <tr class="clickable" onclick="location.href = '@(Url.Action("Details", "CourseManagement", new { courseCode = course.CourseCode }))'">
+            <tr class="clickable"
+                onclick="location.href = '@(Url.Action("Details", "CourseManagement", new { courseCode = course.CourseCode }))'">
                 <td>@course.CourseCode</td>
-                <td>@course.Brand</td>
-                <td>@course.Type</td>
+                <td>@course.CourseName</td>
+                <td>@course.Department</td>
+                <td>@course.CreditHours</td>
             </tr>
         }
     </tbody>
 </table>
-<a id="RegisterCourseButton" asp-action="New" asp-controller="CourseManagement" class="btn btn-default">Register course</a>
-
-
+<a id="RegisterCourseButton" asp-action="New" asp-controller="CourseManagement" class="btn btn-default">Register
+    course</a>

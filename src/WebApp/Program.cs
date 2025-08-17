@@ -1,10 +1,12 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Serilog;
+using StudentSystem.WebApp.RESTClients;
 
-//builder.UseKestrel();
+var builder = WebApplication.CreateBuilder(args);
+
 builder.Host.UseContentRoot(Directory.GetCurrentDirectory());
 
 // setup logging
-builder.Host.UseSerilog((context, logContext) => 
+builder.Host.UseSerilog((context, logContext) =>
     logContext
         .ReadFrom.Configuration(builder.Configuration)
         .Enrich.WithMachineName()
@@ -19,19 +21,18 @@ builder.Services
 builder.Services.AddHealthChecks();
 
 // add custom services
-builder.Services.AddHttpClient<IStudentManagementAPI, StudentManagementAPI>(c => 
-    c.BaseAddress = new Uri(Configuration["Services:StudentManagementAPI"]));
-builder.Services.AddHttpClient<ICourseManagementAPI, CourseManagementAPI>(c => 
-    c.BaseAddress = new Uri(Configuration["Services:CourseManagementAPI"]));
-builder.Services.AddHttpClient<IEnrollmentAPI, EnrollmentAPI>(c => 
-    c.BaseAddress = new Uri(Configuration["Services:EnrollmentManagementAPI"]));
+builder.Services.AddHttpClient<IStudentManagementAPI, StudentManagementAPI>(c =>
+    c.BaseAddress = new Uri(builder.Configuration["Services:StudentManagementAPI"]));
+builder.Services.AddHttpClient<ICourseManagementAPI, CourseManagementAPI>(c =>
+    c.BaseAddress = new Uri(builder.Configuration["Services:CourseManagementAPI"]));
+builder.Services.AddHttpClient<IEnrollmentAPI, EnrollmentAPI>(c =>
+    c.BaseAddress = new Uri(builder.Configuration["Services:EnrollmentManagementAPI"]));
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    app.UseBrowserLink();
 }
 else
 {
@@ -39,10 +40,7 @@ else
     app.UseExceptionHandler("/Home/Error");
 }
 
-app.UseMvc();
-//app.UseDefaultFiles();
 app.UseStaticFiles();
-
 
 app.UseHealthChecks("/hc");
 

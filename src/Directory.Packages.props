@@ -5,12 +5,15 @@
   <ItemGroup>
     <PackageVersion Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.CommandLine" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.EnvironmentVariables"
+      Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageVersion Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
-    <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" /> 
-    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" /> 
+    <PackageVersion Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageVersion Include="AutoMapper" Version="13.0.1" />
+    <PackageVersion Include="Refit" Version="8.0.0" />
+    <PackageVersion Include="Refit.HttpClientFactory" Version="8.0.0" />
     <PackageVersion Include="Serilog" Version="4.3.0" />
     <PackageVersion Include="Serilog.Enrichers.Environment" Version="3.0.1" />
     <PackageVersion Include="Serilog.Extensions.Hosting" Version="8.0.0" />
@@ -18,19 +21,20 @@
     <PackageVersion Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageVersion Include="Serilog.Sinks.Seq" Version="8.0.0" />
     <PackageVersion Include="Polly" Version="8.4.1" />
-    <PackageVersion Include="RabbitMQ.Client" Version="6.8.1" />
-    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" /> 
+    <PackageVersion Include="RabbitMQ.Client" Version="6.5.0" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.6" />
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.6.2" />
     <PackageVersion Include="Serilog.AspNetCore" Version="8.0.1" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6" /> 
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6" />
     <PackageVersion Include="Dapper" Version="2.1.35" />
-    <PackageVersion Include="System.Data.SqlClient" Version="4.8.6" /> 
+    <PackageVersion Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="8.0.6" />
-    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="8.0.6" />
+    <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore"
+      Version="8.0.6" />
     <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.HealthChecks" Version="2.2.0" />
     <PackageVersion Include="AspNetCore.HealthChecks.SqlServer" Version="8.0.2" />
     <PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />

@@ -1,10 +1,10 @@
-global using StudentSystem.TuitionBillService;
-global using StudentSystem.TuitionBillService.Events;
-global using StudentSystem.TuitionBillService.Model;
+global using StudentSystem.TuitionService;
+global using StudentSystem.TuitionService.Events;
+global using StudentSystem.TuitionService.Model;
 global using StudentSystem.Infrastructure.Messaging;
 global using StudentSystem.Infrastructure.Messaging.Configuration;
 global using StudentSystem.TuitionBillService.CommunicationChannels;
-global using StudentSystem.TuitionBillService.Repositories;
+global using StudentSystem.TuitionService.Repositories;
 global using Microsoft.Extensions.Configuration;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.Extensions.Hosting;

@@ -24,7 +24,7 @@
             <tr>
                 <td>@item.Id</td>
                 <td>@item.Student?.FullName (@item.Student?.StudentId)</td>
-                <td>@item.Course?.CourseName (@item.Course?.CourseCode)</td>
+                <td>@item.Course?.CourseCode @item.Course?.CourseName (@item.Course?.Department)</td>
                 <td>@item.Status</td>
                 <td>@item.Grade</td>
             </tr>

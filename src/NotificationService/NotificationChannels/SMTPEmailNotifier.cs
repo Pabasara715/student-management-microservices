@@ -21,7 +21,7 @@ public class SMTPEmailNotifier : IEmailNotifier
         using (SmtpClient client = new SmtpClient(_smptServer, _smtpPort))
         {
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential(_username, _password);
+            client.Credentials = new NetworkCredential(_userName, _password);
 
             MailMessage mailMessage = new MailMessage();
             mailMessage.From = new MailAddress(from);

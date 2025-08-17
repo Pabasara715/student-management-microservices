@@ -36,12 +36,13 @@ public class CourseManagementController : Controller
         {
             try
             {
+
                 await _courseManagementAPI.RegisterCourse(new Course
                 {
-                    CourseCode = model.CourseCode,
-                    CourseName = model.CourseName,
-                    Department = model.Department,
-                    CreditHours = model.CreditHours.Value
+                    CourseCode = model.Course.CourseCode,
+                    CourseName = model.Course.CourseName,
+                    Department = model.Course.Department,
+                    CreditHours = model.Course.CreditHours.Value
                 });
                 return RedirectToAction("Index");
             }

@@ -1,8 +1,8 @@
-global using WebApp.RESTClients;
+global using StudentSystem.WebApp.RESTClients;
 global using StudentSystem.WebApp.Models;
 global using StudentSystem.WebApp.ViewModels;
 global using StudentSystem.WebApp.Mappers;
-global using StudentSystem.WebApp.Commands;
+//global using StudentSystem.WebApp.Commands;
 global using StudentSystem.Infrastructure.Messaging;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.AspNetCore.Mvc.Rendering;

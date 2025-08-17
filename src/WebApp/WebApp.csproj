@@ -12,14 +12,19 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" />
     <PackageReference Include="Polly" />
+    <PackageReference Include="Refit" />
+    <PackageReference Include="Refit.HttpClientFactory" />
     <PackageReference Include="Serilog.AspNetCore" />
     <PackageReference Include="Serilog.Settings.Configuration" />
     <PackageReference Include="Serilog.Sinks.Console" />
     <PackageReference Include="Serilog.Sinks.Seq" />
   </ItemGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure.Messaging\Infrastructure.Messaging.csproj" />
+    <ProjectReference Include="..\StudentManagementAPI\StudentManagementAPI.csproj" />
+    <ProjectReference Include="..\CourseManagementAPI\CourseManagementAPI.csproj" />
+
   </ItemGroup>
 
 </Project>

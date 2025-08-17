@@ -20,7 +20,7 @@
             return new SMTPEmailCommunicator(mailHost, mailPort, mailUserName, mailPassword);
         });
 
-        services.AddHostedService<TuitionBillWorker>();
+        services.AddHostedService<TuitionWorker>();
     })
     .UseSerilog((hostContext, loggerConfiguration) =>
     {
